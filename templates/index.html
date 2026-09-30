@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        FitBuddy | AI Fitness Plan Generator
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/style.css') }}"
+    >
+
+</head>
+
+
+<body class="landing-page">
+
+
+<main class="container">
+
+
+<section class="hero-card">
+
+
+<div class="brand">
+    FIT<span>BUDDY</span>
+</div>
+
+
+<p class="eyebrow">
+    AI FITNESS PLAN GENERATOR
+</p>
+
+
+<h1>
+    Your personalized
+    7-day fitness journey.
+</h1>
+
+
+<p class="subtitle">
+
+    Enter your profile and let FitBuddy
+    generate a personalized workout plan
+    and nutrition/recovery tip.
+
+</p>
+
+
+{% if error %}
+
+<div class="alert error">
+
+    {{ error }}
+
+</div>
+
+{% endif %}
+
+
+<form
+    action="/generate-workout"
+    method="post"
+    class="form-grid"
+>
+
+
+<div class="field">
+
+<label for="username">
+    Name
+</label>
+
+<input
+    id="username"
+    name="username"
+    type="text"
+    placeholder="Your name"
+    required
+>
+
+</div>
+
+
+<div class="field">
+
+<label for="user_id">
+    User ID
+</label>
+
+<input
+    id="user_id"
+    name="user_id"
+    type="text"
+    placeholder="Example: FB001"
+    required
+>
+
+</div>
+
+
+<div class="field">
+
+<label for="age">
+    Age
+</label>
+
+<input
+    id="age"
+    name="age"
+    type="number"
+    min="13"
+    max="100"
+    placeholder="25"
+    required
+>
+
+</div>
+
+
+<div class="field">
+
+<label for="weight">
+    Weight (kg)
+</label>
+
+<input
+    id="weight"
+    name="weight"
+    type="number"
+    min="20"
+    max="500"
+    step="0.1"
+    placeholder="65"
+    required
+>
+
+</div>
+
+
+<div class="field">
+
+<label for="goal">
+    Fitness Goal
+</label>
+
+<select
+    id="goal"
+    name="goal"
+    required
+>
+
+<option value="">
+    Select a goal
+</option>
+
+<option value="weight loss">
+    Weight Loss
+</option>
+
+<option value="muscle gain">
+    Muscle Gain
+</option>
+
+<option value="general wellness">
+    General Wellness
+</option>
+
+<option value="flexibility">
+    Flexibility
+</option>
+
+<option value="endurance">
+    Endurance
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label for="intensity">
+    Workout Intensity
+</label>
+
+<select
+    id="intensity"
+    name="intensity"
+    required
+>
+
+<option value="low">
+    Low
+</option>
+
+<option
+    value="medium"
+    selected
+>
+    Medium
+</option>
+
+<option value="high">
+    High
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label for="experience_level">
+    Experience Level
+</label>
+
+<select
+    id="experience_level"
+    name="experience_level"
+>
+
+<option
+    value="beginner"
+    selected
+>
+    Beginner
+</option>
+
+<option value="intermediate">
+    Intermediate
+</option>
+
+<option value="advanced">
+    Advanced
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label for="workout_schedule">
+    Workout Schedule
+</label>
+
+<select
+    id="workout_schedule"
+    name="workout_schedule"
+>
+
+<option
+    value="7 days"
+    selected
+>
+    7 Days
+</option>
+
+<option value="5 days">
+    5 Training Days
+</option>
+
+<option value="3 days">
+    3 Training Days
+</option>
+
+</select>
+
+</div>
+
+
+<button
+    class="primary-button full-width"
+    type="submit"
+>
+
+    Generate My Plan →
+
+</button>
+
+
+</form>
+
+
+<div class="links">
+
+<a href="/view-all-users">
+    Admin Dashboard
+</a>
+
+<a href="/docs">
+    API Docs
+</a>
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+</body>
+
+</html>
